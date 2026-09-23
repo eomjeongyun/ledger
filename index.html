@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+  <meta name="theme-color" content="#D9EFDE">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="가계부">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <title>가계부</title>
+</head>
+<body>
+  <main class="app-shell">
+    <section id="home-screen" class="screen active">
+      <header class="top-header">
+        <h1>가계부</h1>
+      </header>
+      <p id="todayLabel" class="today-label"></p>
+
+      <div class="total-card">
+        <p class="total-label">오늘 쓴 돈</p>
+        <p id="todayTotal" class="total-amount">0원</p>
+        <div id="methodBreakdown" class="method-breakdown"></div>
+      </div>
+
+      <div class="section-head">
+        <h2>오늘 기록</h2>
+      </div>
+      <div id="todayList" class="entry-list"></div>
+    </section>
+
+    <section id="calendar-screen" class="screen" hidden>
+      <header class="top-header">
+        <h1>달력</h1>
+      </header>
+      <div class="month-nav">
+        <button id="prevMonth" class="icon-button" type="button" aria-label="이전 달">‹</button>
+        <span id="calendarTitle" class="month-title"></span>
+        <button id="nextMonth" class="icon-button" type="button" aria-label="다음 달">›</button>
+      </div>
+      <p id="monthSummary" class="month-summary"></p>
+      <div id="calendarGrid" class="calendar-grid"></div>
+      <div id="weekSummary" class="week-summary"></div>
+    </section>
+  </main>
+
+  <button id="addButton" class="add-button" type="button" aria-label="지출 추가">+</button>
+
+  <nav class="tab-bar" aria-label="주요 메뉴">
+    <button class="tab active" data-screen="home" type="button"><span class="tab-icon home-icon" aria-hidden="true"></span><span>홈</span></button>
+    <button class="tab" data-screen="calendar" type="button"><span class="tab-icon calendar-icon" aria-hidden="true"></span><span>달력</span></button>
+  </nav>
+
+  <div id="entrySheet" class="sheet-backdrop" hidden>
+    <div class="sheet">
+      <p id="sheetTitle" class="sheet-title">지출 추가</p>
+      <label class="field">금액
+        <input id="amountInput" type="number" inputmode="numeric" min="0" step="100" placeholder="0">
+      </label>
+      <div id="methodPicker" class="method-picker"></div>
+      <label class="field">날짜
+        <input id="dateInput" type="date">
+      </label>
+      <label class="field">메모 (선택)
+        <input id="memoInput" type="text" placeholder="예: 점심, 택시">
+      </label>
+      <div class="sheet-actions">
+        <button id="deleteEntry" class="danger-button" type="button" hidden>삭제</button>
+        <button id="cancelEntry" class="secondary-button" type="button">취소</button>
+        <button id="saveEntry" class="primary-button" type="button">저장</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="daySheet" class="sheet-backdrop" hidden>
+    <div class="sheet">
+      <p id="daySheetTitle" class="sheet-title">날짜</p>
+      <div id="dayList" class="entry-list"></div>
+      <div class="sheet-actions">
+        <button id="closeDaySheet" class="secondary-button" type="button">닫기</button>
+        <button id="addForDay" class="primary-button" type="button">이 날 추가</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
