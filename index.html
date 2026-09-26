@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
-  <meta name="theme-color" content="#D9EFDE">
+  <meta name="theme-color" content="#DCEFD1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -21,6 +21,17 @@
         <h1>가계부</h1>
       </header>
       <p id="todayLabel" class="today-label"></p>
+
+      <form id="quickForm" class="quick-bar">
+        <input id="quickInput" type="text" placeholder="예: 택시 3만원" autocomplete="off">
+        <button type="submit">추가</button>
+      </form>
+
+      <button id="budgetCard" type="button" class="budget-card">
+        <p class="budget-label">이번 달 생활비</p>
+        <div class="budget-bar"><div id="budgetFill" class="budget-fill"></div></div>
+        <p id="budgetText" class="budget-text"></p>
+      </button>
 
       <div class="total-card">
         <p class="total-label">오늘 쓴 돈</p>
@@ -44,6 +55,9 @@
         <button id="nextMonth" class="icon-button" type="button" aria-label="다음 달">›</button>
       </div>
       <p id="monthSummary" class="month-summary"></p>
+      <div class="weekday-row">
+        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+      </div>
       <div id="calendarGrid" class="calendar-grid"></div>
       <div id="weekSummary" class="week-summary"></div>
     </section>
@@ -62,6 +76,12 @@
       <label class="field">금액
         <input id="amountInput" type="number" inputmode="numeric" min="0" step="100" placeholder="0">
       </label>
+      <div class="picker-head">
+        <span>카테고리</span>
+        <button id="manageCategories" type="button" class="link-button">관리</button>
+      </div>
+      <div id="categoryPicker" class="chip-picker"></div>
+      <div class="picker-head"><span>결제 수단</span></div>
       <div id="methodPicker" class="method-picker"></div>
       <label class="field">날짜
         <input id="dateInput" type="date">
@@ -81,9 +101,37 @@
     <div class="sheet">
       <p id="daySheetTitle" class="sheet-title">날짜</p>
       <div id="dayList" class="entry-list"></div>
+      <button id="toggleNoSpend" class="no-spend-button" type="button">👍 이 날은 무지출로 표시</button>
       <div class="sheet-actions">
         <button id="closeDaySheet" class="secondary-button" type="button">닫기</button>
         <button id="addForDay" class="primary-button" type="button">이 날 추가</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="categorySheet" class="sheet-backdrop" hidden>
+    <div class="sheet">
+      <p class="sheet-title">카테고리 관리</p>
+      <div id="categoryManageList" class="category-manage-list"></div>
+      <form id="addCategoryForm" class="quick-bar">
+        <input id="newCategoryInput" type="text" placeholder="새 카테고리 이름" autocomplete="off">
+        <button type="submit">추가</button>
+      </form>
+      <div class="sheet-actions">
+        <button id="closeCategorySheet" class="primary-button" type="button">완료</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="budgetSheet" class="sheet-backdrop" hidden>
+    <div class="sheet">
+      <p class="sheet-title">이번 달 생활비 설정</p>
+      <label class="field">한 달 생활비 (원)
+        <input id="budgetInput" type="number" inputmode="numeric" min="0" step="10000" placeholder="200000">
+      </label>
+      <div class="sheet-actions">
+        <button id="cancelBudget" class="secondary-button" type="button">취소</button>
+        <button id="saveBudget" class="primary-button" type="button">저장</button>
       </div>
     </div>
   </div>

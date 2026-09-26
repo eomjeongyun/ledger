@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
-<rect width="192" height="192" rx="42" fill="#D9EFDE"/>
-<circle cx="96" cy="96" r="46" fill="none" stroke="#4F8C6D" stroke-width="8"/>
-<text x="96" y="114" font-family="Pretendard, -apple-system, sans-serif" font-size="52" font-weight="700" fill="#4F8C6D" text-anchor="middle">₩</text>
+<rect width="192" height="192" rx="40" fill="#DCEFD1"/>
+<circle cx="96" cy="98" r="50" fill="none" stroke="#4C8A52" stroke-width="4" stroke-dasharray="7 6" transform="rotate(-4 96 98)"/>
+<path d="M96 52 C93 52 91 54 91 57 L91 60" fill="none" stroke="#3B6E40" stroke-width="9" stroke-linecap="round"/>
+<path d="M96 138 L96 142" fill="none" stroke="#3B6E40" stroke-width="9" stroke-linecap="round"/>
+<path d="M114 68 C104 60 82 60 76 72 C70 84 84 90 98 94 C114 98 122 106 116 118 C110 130 84 130 76 120"
+      fill="none" stroke="#3B6E40" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

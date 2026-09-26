@@ -1,15 +1,13 @@
 'use strict';
 
-const CACHE_NAME = 'ledger-v1';
+const CACHE_NAME = 'ledger-v2';
 const APP_SHELL = [
   './',
   './index.html',
   './style.css',
   './app.js',
   './manifest.webmanifest',
-  './fonts/memomentKkukKkuk.woff2',
-  './fonts/Pretendard-Regular.woff2',
-  './fonts/Pretendard-SemiBold.woff2',
+  './fonts/KkuBulLim.woff2',
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png',
